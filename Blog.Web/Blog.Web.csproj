@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Autor\" />
+    <Folder Include="Areas\" />
+    <Folder Include="Areas\Admin\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Views\" />
+    <Folder Include="Areas\Admin\Views\Home\" />
+    <Folder Include="Areas\Admin\Shared\" />
+    <Folder Include="Areas\Admin\Views\Autor\" />
+    <Folder Include="wwwroot\js\Paginas\" />
+    <Folder Include="wwwroot\js\Paginas\Admin\" />
+    <Folder Include="wwwroot\lib\blockUI\" />
+    <Folder Include="wwwroot\images\Fotos\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Admin\Views\Categoria\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <Content Remove="wwwroot\lib\blockUI\jquery.blockUI.js" />
+    <Content Remove="Areas\Admin\Shared\_Mensagem.cshtml" />
+    <Content Remove="Areas\Admin\Views\Shared\_Mensagem.cshtml" />
+    <Content Remove="wwwroot\js\confirmation.js" />
+    <Content Remove="Areas\Admin\Views\Categoria\partialForm.cshtml" />
+    <Content Remove="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\blockUI\jquery.blockUI.js" />
+    <None Include="Areas\Admin\Views\Shared\_Mensagem.cshtml" />
+    <None Include="wwwroot\js\confirmation.js" />
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Blog.Negocio\Blog.Negocio.csproj" />
+  </ItemGroup>
+</Project>

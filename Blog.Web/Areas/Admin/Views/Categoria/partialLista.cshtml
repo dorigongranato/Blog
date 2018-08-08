@@ -1,0 +1,27 @@
+﻿@model List<Blog.Dados.Models.TblCategoria>
+
+<table class="table table-striped table-hover table-sm">
+    <thead class="thead-default">
+        <tr>
+            <th scope="col" style="width:5%;" >#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Data Interação</th>
+            <th style="width:5%;"></th>
+            <th style="width:5%;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var Categoria in Model)
+            {
+            <tr data-id="@Categoria.Id"  scope="row">
+                <td scope="row">@Categoria.Id</td>
+                <td>@(Categoria.Nome)</td>
+                <td>@string.Format("{0:dd/MM/yyyy}", @Categoria.DataCadastro)</td>
+                <td><button class="btn btn-primary btn-block" type="submit" id="btnEditar" rel="tooltip" data-placement="top" title="Editar"><i class="fa fa-edit fa-lg"></i></button></td>
+                <td><button class="btn btn-primary btn-danger" type="submit" id="btnExcluir" data-toggle="confirmation" rel="tooltip"  data-placement="top" title="Excluir"><i class="fa fa-trash-alt fa-lg"></i></button></td>
+            </tr>
+            }
+        }
+    </tbody>
+</table>

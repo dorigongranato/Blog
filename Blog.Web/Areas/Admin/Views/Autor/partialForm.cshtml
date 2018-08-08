@@ -1,0 +1,75 @@
+﻿@model Blog.Dados.Models.TblAutor
+
+<div class="container">
+        <div class="row">
+        <div class="col-md-12 order-md-1">
+            <form id="frmPagina" class="needs-validation" novalidate>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="Nome">Nome</label>
+                        <input type="text" class="form-control" id="Nome" placeholder="" value="@Model.Nome" maxlength="50" required>
+                        <div class="invalid-feedback">
+                            O campo Nome é obrigatório.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="SobreNome">SobreNome</label>
+                        <input type="text" class="form-control" id="SobreNome" placeholder="" value="@Model.SobreNome" maxlength="50" required>
+                        <div class="invalid-feedback">
+                            O campo SobreNome é obrigatório.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="Email">Email</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">&#64;</span>
+                            </div>
+                            <input type="text" class="form-control" id="Email" placeholder="Email" value="@Model.Email" maxlength="100" required>
+                            <div class="invalid-feedback" style="width: 100%;">
+                                O campo email é obrigatório.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="ConfirmarEmail">Confirmar Email</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">&#64;</span>
+                            </div>
+                            <input type="text" class="form-control" id="ConfirmarEmail" placeholder="Confirmar Email" value="@Model.Email" required>
+                            <div class="invalid-feedback" style="width: 100%;">
+                                O campo Confirmar Email é obrigatório.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="Resumo">Resumo</label>
+                        <div class="input-group">
+                            <textarea class="form-control" id="Resumo" rows="3" maxlength="500" required>@Model.Resumo</textarea>
+                            <div class="invalid-feedback" style="width: 100%;">
+                                O campo Resumo é obrigatório.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            <label for="Foto">Foto</label>
+                            <input type="file" class="form-control-file" id="Foto" accept="image/*" aria-describedby="fileHelp">
+                            <small id="fileHelp" class="form-text text-muted">Escolha uma foto ou avatar para ser identificado nos textos publicados.</small>
+                        </div>
+                    </div>   
+                </div>
+
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="button" id="btnSalvar">Salvar</button>
+                <hr class="mb-4">
+            </form>
+        </div>
+    </div>
+</div>

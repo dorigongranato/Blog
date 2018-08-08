@@ -1,0 +1,32 @@
+﻿
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success">
+	    <button class="close" data-dismiss="alert"><i class="pci-cross pci-circle"></i></button>
+	    @Html.Raw(TempData["MensagemSucesso"].ToString())
+    </div>   
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger">
+	    <button class="close" data-dismiss="alert"><i class="pci-cross pci-circle"></i></button>
+	    @Html.Raw(TempData["MensagemErro"].ToString())
+    </div>   
+}
+
+@if (TempData["MensagemAlerta"] != null)
+{
+    <div class="alert alert-warning">
+	    <button class="close" data-dismiss="alert"><i class="pci-cross pci-circle"></i></button>
+	    @Html.Raw(TempData["MensagemAlerta"].ToString())
+    </div>   
+}
+
+@if (TempData["MensagemInfo"] != null)
+{
+    <div class="alert alert-info">
+	    <button class="close" data-dismiss="alert"><i class="pci-cross pci-circle"></i></button>
+	    @Html.Raw(TempData["MensagemInfo"].ToString())
+    </div>   
+}
