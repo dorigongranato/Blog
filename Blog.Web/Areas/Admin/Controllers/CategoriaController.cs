@@ -55,7 +55,7 @@ namespace Blog.Web.Areas.Admin.Controllers
                 // Validação do Nome
                 if (categoria.Nome == null)
                 {
-                    ExibirMensagem("O Nome é obrigatório", ETipoMensagem.Alerta, 99);
+                    ExibirMensagem("A categoria é obrigatório", ETipoMensagem.Alerta, 99);
                     return PartialView("_Mensagem");
                 }
 

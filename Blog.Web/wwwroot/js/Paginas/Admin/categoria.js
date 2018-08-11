@@ -14,7 +14,7 @@ $(document).ready(function () {
         $("#PartForm").slideDown("slow");
         $("#btnVoltar").show();
 
-        LimparMensagem();
+        //LimparMensagem();
 
     });
 
@@ -42,10 +42,6 @@ $(document).ready(function () {
     //Ação do botão Editar
     $("body").on('click', '#btnEditar', function () {
 
-
-        //$("#PartForm").slideUp("slow");
-        //$("#PartForm").html(content);
-        //$("#PartForm").slideDown("slow");
         $("#btnVoltar").show();
 
         var id = $(this).parent().parent().attr("data-id");
@@ -58,7 +54,6 @@ $(document).ready(function () {
 
     //Ação do botão Excluir
     $("body").on('click', '#btnExcluir', function () {
-
 
         var id = $(this).parent().parent().attr("data-id");
   
@@ -81,7 +76,7 @@ $(document).ready(function () {
 //Lista os dados da base
 function Listar(pagina) {
     
-    MensagemBloqueio("Carregando...");
+   // MensagemBloqueio("Carregando...");
     $.ajax({
         url: '/Admin/Categoria/Listar',
         data: {
@@ -93,7 +88,7 @@ function Listar(pagina) {
                 $("#PartList").html(content);
                 $("#PartList").show("slow");
                 
-                DesbloquearPagina();
+               // DesbloquearPagina();
 
                 IniciarElementos();
 
@@ -113,21 +108,19 @@ function Listar(pagina) {
 
 function Salvar() {
 
-    ValidarForm();
+    if(!ValidarFormulario()){
+        return;
+    }
 
     MensagemBloqueio("Carregando...");
-
-    var Form = new FormData();
-
-    Form.append("Nome",      $("#Nome").val());
-    Form.append("Id",        IdAcao);
 
     $.ajax({
         url: '/Admin/Categoria/Salvar',
         type: "POST",
-        contentType: false,
-        processData: false,
-        data: Form,
+        data: {
+            Nome:      $("#Nome").val(),
+            Id:        IdAcao
+        },
         statusCode: {
             200: function (content) {
 
@@ -138,6 +131,7 @@ function Salvar() {
                 LimparCampos();
             
                 Listar();
+
             },
             99: function (content) {
                 DesbloquearPagina();
@@ -207,4 +201,57 @@ function Excluir(id) {
         }
     });
             
+}
+
+
+function ValidarFormulario(){
+
+   $( "#frmPagina1" ).validate( {
+        rules: {
+            Nome: "required"
+        },
+        messages: {
+            Nome: "Informe uma categoria"
+        },
+        errorElement: "em",
+        errorPlacement: function ( error, element ) {
+            // Add the `help-block` class to the error element
+            error.addClass( "invalid-feedback d-block" );
+
+            // Add `has-feedback` class to the parent div.form-group
+            // in order to add icons to inputs
+
+            element.addClass("is-invalid");
+
+            if ( element.prop( "type" ) === "checkbox" ) {
+                error.insertAfter( element.parent( "label" ) );
+            } else {
+                error.insertAfter( element );
+            }
+
+            // Add the span element, if doesn't exists, and apply the icon classes to it.
+            if ( !element.next( "span" )[ 0 ] ) {
+                //$( "<i class='fa fa-edit fa-lg'></i>" ).insertAfter( element );
+                //$( "<span class='input-group-append'><div class='input-group-text bg-transparent'><i class='fa fa-search'></i></div></span>" ).insertAfter( $( element ) );
+            }
+        },
+        success: function ( label, element ) {
+            // Add the span element, if doesn't exists, and apply the icon classes to it.
+            if ( !$( element ).next( "span" )[ 0 ] ) {
+                //$( "<span class='b glyphicon glyphicon-ok form-control-feedback'></span>" ).insertAfter( $( element ) );
+            }
+        },
+        highlight: function ( element, errorClass, validClass ) {
+            $( element ).addClass( "is-invalid" ).removeClass( "is-valid" );
+           // $( element ).next( "span" ).addClass( "c glyphicon-remove" ).removeClass( "glyphicon-ok" );
+        },
+        unhighlight: function ( element, errorClass, validClass ) {
+            $( element ).addClass( "is-valid" ).removeClass( "is-invalid" );
+           // $( element ).next( "span" ).addClass( "d glyphicon-ok" ).removeClass( "glyphicon-remove" );
+        }
+    } );
+
+
+    return $("#frmPagina1").valid();
+
 }

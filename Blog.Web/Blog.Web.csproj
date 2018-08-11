@@ -40,6 +40,18 @@
     <Content Remove="wwwroot\js\confirmation.js" />
     <Content Remove="Areas\Admin\Views\Categoria\partialForm.cshtml" />
     <Content Remove="app.config" />
+    <Content Remove="wwwroot\lib\jquery-validation\.bower.json" />
+    <Content Remove="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <Content Remove="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <Content Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <Content Remove="wwwroot\lib\jquery-validation-unobtrusive\.bower.json" />
+    <Content Remove="wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt" />
+    <Content Remove="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <Content Remove="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <Content Remove="wwwroot\lib\jquery.validate.min.js" />
+    <Content Remove="wwwroot\lib\jquery-validation\.DS_Store" />
+    <Content Remove="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <Content Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
@@ -55,6 +67,13 @@
     <None Include="Areas\Admin\Views\Shared\_Mensagem.cshtml" />
     <None Include="wwwroot\js\confirmation.js" />
     <None Include="app.config" />
+    <None Include="Areas\Admin\Views\Categoria\partialForm.cshtml" />
+    <None Include="wwwroot\lib\jquery-validation\.DS_Store" />
+    <None Include="wwwroot\lib\jquery-validation\.bower.json" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Blog.Negocio\Blog.Negocio.csproj" />

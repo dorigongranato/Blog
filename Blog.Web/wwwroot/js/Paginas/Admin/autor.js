@@ -113,7 +113,9 @@ function Listar(pagina) {
 
 function Salvar() {
 
-    ValidarForm();
+    if(!ValidarFormulario()){
+        return;
+    }
 
     MensagemBloqueio("Carregando...");
 
@@ -214,4 +216,77 @@ function Excluir(id) {
         }
     });
             
+}
+
+function ValidarFormulario(){
+
+   $( "#frmPagina" ).validate( {
+        rules: {
+            Nome: "required",
+            SobreNome: "required",
+            Email: {
+                    required: true,
+                    email: true
+                    },
+            ConfirmarEmail: {
+                    required: true,
+                    email: true,
+                    equalTo: "#Email"
+                    },
+            Resumo: "required",
+            Foto: "required"
+        },
+        messages: {
+            Nome: "O Nome é obrigatório",
+            SobreNome: "O SobreNome é obrigatório",
+            Email: "O Email é obrigatório",
+            ConfirmarEmail: {
+                        required: "Confirmar Email é obrigatório",
+                        equalTo: "Os Email's informados não são iguais",
+                        email:"Informe um email válido"
+                    },
+            Resumo: "O Resumo é obrigatório",
+            Foto: "A foto é obrigatória"
+        },
+        errorElement: "em",
+        errorPlacement: function ( error, element ) {
+            // Add the `help-block` class to the error element
+            error.addClass( "invalid-feedback d-block" );
+
+            // Add `has-feedback` class to the parent div.form-group
+            // in order to add icons to inputs
+
+            element.addClass("is-invalid");
+
+            if ( element.prop( "type" ) === "checkbox" ) {
+                error.insertAfter( element.parent( "label" ) );
+            } else {
+                error.insertAfter( element );
+            }
+
+            // Add the span element, if doesn't exists, and apply the icon classes to it.
+            if ( !element.next( "span" )[ 0 ] ) {
+                //$( "<i class='fa fa-edit fa-lg'></i>" ).insertAfter( element );
+                //$( "<span class='input-group-append'><div class='input-group-text bg-transparent'><i class='fa fa-search'></i></div></span>" ).insertAfter( $( element ) );
+            }
+        },
+        success: function ( label, element ) {
+            // Add the span element, if doesn't exists, and apply the icon classes to it.
+            if ( !$( element ).next( "span" )[ 0 ] ) {
+                //$( "<span class='b glyphicon glyphicon-ok form-control-feedback'></span>" ).insertAfter( $( element ) );
+            }
+        },
+        highlight: function ( element, errorClass, validClass ) {
+            $( element ).addClass( "is-invalid" ).removeClass( "is-valid" );
+           // $( element ).next( "span" ).addClass( "c glyphicon-remove" ).removeClass( "glyphicon-ok" );
+        },
+        unhighlight: function ( element, errorClass, validClass ) {
+            $( element ).addClass( "is-valid" ).removeClass( "is-invalid" );
+           // $( element ).next( "span" ).addClass( "d glyphicon-ok" ).removeClass( "glyphicon-remove" );
+        }
+    } );
+
+
+    return $("#frmPagina").valid();
+
 }
