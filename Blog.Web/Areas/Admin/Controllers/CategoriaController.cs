@@ -20,6 +20,8 @@ namespace Blog.Web.Areas.Admin.Controllers
         public IActionResult Index()
         {
 
+            TempData["TesteTD"] = "asdfsda";
+            TempData.Keep("TesteTD");
             TblCategoria categoria = new TblCategoria();
 
             return View(categoria);

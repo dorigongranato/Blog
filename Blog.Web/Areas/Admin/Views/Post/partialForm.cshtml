@@ -1,0 +1,112 @@
+﻿@model Blog.Dados.Models.TblPost
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 order-md-1">
+                <form id="frmPagina" was-validated>
+                    <div class="row">
+                        <div class="form-group input-group">
+                            <div class="col-md-12 mb-3">
+                                <label for="Titulo">Titulo</label>
+                                <input type="text" class="form-control " id="Titulo" name="Titulo" placeholder="" value="@Model.Titulo" maxlength="50">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group input-group">
+                            <div class="col-md-6 mb-3">
+                                <label for="Autor">Autor</label>
+                                <div class="input-group">
+                                    <select class="form-control" id="cboAutor" name="cboAutor">
+                                        <option value="">Selecione um autor</option>
+                                        @{
+                                            if (ViewBag.Autores != null) {
+                                                foreach (var Item in ViewBag.Autores)
+                                                {
+                                                    if (Model.AutorId == Item.Id)
+                                                    {
+                                                        <option value="@Item.Id" selected> @Item.Nome </option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@Item.Id"> @Item.Nome </option>
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="ConfirmarEmail">Categoria</label>
+                                <div class="input-group">
+                                    <select class="form-control" id="cboCategoria" name="cboCategoria">
+                                        <option value="">Selecione uma categoria</option>
+                                        @{
+                                            if (ViewBag.Categorias != null)
+                                            {
+                                                foreach (var ItemC in ViewBag.Categorias)
+                                                {
+                                                    if (Model.CategoriaId == ItemC.Id)
+                                                    {
+                                                        <option value="@ItemC.Id" selected> @ItemC.Nome </option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@ItemC.Id"> @ItemC.Nome </option>
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="toolbar">
+                                <span id="heading" class="fa fa-plus">Cabeçalho</span>
+                                <span class="hiddenheading">
+                                    <a href="#" data-command='p'>Parágrafo</a>
+                                    <a href="#" data-command='h1'>H1</a>
+                                    <a href="#" data-command='h2'>H2</a>
+                                    <a href="#" data-command='h3'>H3</a>
+                                    <a href="#" data-command='h4'>H4</a>
+                                    <a href="#" data-command='h5'>H5</a>
+                                    <a href="#" data-command='h6'>H6</a>
+                                </span>
+                                <span class="hidethem">
+                                    <a href="#" data-command='insertimage'><i class='fa fa-image'></i></a>
+                                    <a href="#" data-command='undo'><i class='fa fa-undo'></i></a>
+                                    <a href="#" data-command='redo'><i class='fa fa-repeat'></i></a>
+                                    <a href="#" data-command='bold'><i class='fa fa-bold'></i></a>
+                                    <a href="#" data-command='italic'><i class='fa fa-italic'></i></a>
+                                    <a href="#" data-command='underline'><i class='fa fa-underline'></i></a>
+                                    <a href="#" data-command='strikeThrough'><i class='fa fa-strikethrough'></i></a>
+                                    <a href="#" data-command='justifyLeft'><i class='fa fa-align-left'></i></a>
+                                    <a href="#" data-command='justifyRight'><i class='fa fa-align-right'></i></a>
+                                    <a href="#" data-command='justifyCenter'><i class='fa fa-align-center'></i></a>
+                                    <a href="#" data-command='justifyFull'><i class='fa fa-align-justify'></i></a>
+                                    <a href="#" data-command='quote'><i class='fa fa-quote-left'></i></a>
+                                    <a href="#" data-command='insertUnorderedList'><i class='fa fa-list-ul'></i></a>
+                                    <a href="#" data-command='insertOrderedList'><i class='fa fa-list-ol'></i></a>
+                                    <a href="#" data-command='createlink'><i class='fa fa-link'></i></a>
+                                    <a href="#" data-command='unlink'><i class='fa fa-unlink'></i></a>
+                                    <a href="#" data-command='subscript'><i class='fa fa-subscript'></i></a>
+                                    <a href="#" data-command='superscript'><i class='fa fa-superscript'></i></a>
+                                </span>
+                            </span>
+                        </div>
+                        <div id="ConteudoPost" name="ConteudoPost" class="card-body" contenteditable="true">@Html.Raw(Model.Conteudo)</div>
+                        <div class="card-footer">
+                            <small>Palavras: <span id="count"></span></small>
+                        </div>
+                    </div>
+                    <hr class="mb-4">
+                    <button class="btn btn-primary btn-lg btn-block" type="button" id="btnSalvar">Salvar</button>
+                    <hr class="mb-4">
+                </form>
+            </div>
+        </div>
+    </div>

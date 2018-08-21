@@ -12,6 +12,8 @@ namespace Blog.Web.Controllers
     {
         public IActionResult Index()
         {
+            TempData["TesteHome"] = "AAAA";
+            TempData.Keep("TesteTD");
             return View();
         }
 

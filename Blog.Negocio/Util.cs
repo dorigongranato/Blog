@@ -11,7 +11,6 @@ namespace Blog.Negocio
         {
         }
 
-
         /// <summary>
         /// Limpa a memsagem da View
         /// </summary>

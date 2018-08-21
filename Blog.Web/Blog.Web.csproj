@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +24,7 @@
     <Folder Include="wwwroot\images\Fotos\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Admin\Views\Categoria\" />
+    <Folder Include="Areas\Admin\Views\Post\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
@@ -52,6 +54,7 @@
     <Content Remove="wwwroot\lib\jquery-validation\.DS_Store" />
     <Content Remove="wwwroot\lib\jquery-validation\LICENSE.md" />
     <Content Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <Content Remove="Areas\Admin\Views\Post\partialForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
@@ -74,6 +77,7 @@
     <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
     <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
     <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Include="Areas\Admin\Views\Post\partialForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Blog.Negocio\Blog.Negocio.csproj" />
