@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Hosting;
 using Blog.Negocio.Enumeradores;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Mvc.Filters;
+using System.Web;
+using System.Net;
 
 namespace Blog.Web.Areas.Admin.Controllers
 {
@@ -49,7 +51,7 @@ namespace Blog.Web.Areas.Admin.Controllers
             return PartialView("PartialLista", Posts);
         }
 
-        public ActionResult Salvar(TblPost post)
+        public ActionResult Salvar(TblPost post, string ConteudoHTML)
         {
             try
             {
@@ -96,6 +98,12 @@ namespace Blog.Web.Areas.Admin.Controllers
 
                 //Data de Cadastro
                 post.DataCadastro = DateTime.Now;
+
+                string teste = string.Empty;
+
+                //HttpUtility.HtmlDecode(post.Conteudo, teste);
+
+                post.Conteudo = WebUtility.HtmlDecode(ConteudoHTML);
 
                 if (post.Id > 0)
                 {

@@ -72,26 +72,7 @@ $(document).ready(function () {
 
     });
 
-    $('.toolbar a').click(function () {
-            var command = $(this).data('command');
-            if(command== 'p' || command == 'h1' || command == 'h2' || command == 'h3' || command == 'h4' || command == 'h5' || command == 'h6') {
-                document.execCommand('formatBlock', false, command);
-            }
-            if (command == 'createlink' || command == 'insertimage') {
-                url = prompt('Informe o link: ', 'http:\/\/');
-                document.execCommand($(this).data('command'), false, url);
-            } else document.execCommand($(this).data('command'), false, null);
-        });
-        $('#heading').click(function () {
-            $('.hidethem').toggle();
-            $('.hiddenheading').toggle();
-        });
-        
-        $('#ConteudoPost').on('input', function () {
-            var text = this.textContent,
-            count = text.trim().replace(/\s+/g, ' ').split(' ').length;
-            $('#count').text(count);
-        })
+    IniciarEditor();
 
 });
 
@@ -145,9 +126,8 @@ function Salvar() {
             Titulo: $("#Titulo").val(),
             AutorId: $("#cboAutor").val(),
             CategoriaID: $("#cboCategoria").val(),
-            Conteudo : $("#ConteudoPost").text(),
-            Id:        IdAcao
-
+            Id: IdAcao,
+            ConteudoHTML : $("#ConteudoPost").html()
         },
         statusCode: {
             200: function (content) {
@@ -189,6 +169,8 @@ function Buscar(id) {
                 $("#PartList").slideUp("slow");
                 $("#PartForm").html(content);
                 $("#PartForm").slideDown("slow");
+
+                IniciarEditor();
 
             },
             99: function (content) {
@@ -285,5 +267,32 @@ function ValidarFormulario(){
 
 
     return $("#frmPagina").valid();
+
+}
+
+
+
+function IniciarEditor() {
+
+        $('.toolbar a').click(function () {
+            var command = $(this).data('command');
+            if(command== 'p' || command == 'h1' || command == 'h2' || command == 'h3' || command == 'h4' || command == 'h5' || command == 'h6') {
+                document.execCommand('formatBlock', false, command);
+            }
+            if (command == 'createlink' || command == 'insertimage') {
+                url = prompt('Informe o link: ', 'http:\/\/');
+                document.execCommand($(this).data('command'), false, url);
+            } else document.execCommand($(this).data('command'), false, null);
+        });
+        $('#heading').click(function () {
+            $('.hidethem').toggle();
+            $('.hiddenheading').toggle();
+        });
+        
+        $('#ConteudoPost').on('input', function () {
+            var text = this.textContent,
+            count = text.trim().replace(/\s+/g, ' ').split(' ').length;
+            $('#count').text(count);
+        })
 
 }

@@ -12,6 +12,14 @@ namespace Blog.Dados
         {
         }
 
+        //public async Task<List<TblCategoria>> ListarCategoriasAsync()
+        //{
+        //    using (var con = new ContextBlog())
+        //    {
+        //        return await con.TblCategoria.ToListAsync();
+        //    }
+        //}
+
         public List<TblCategoria> ListarCategorias(){
             
             List<TblCategoria> Categorias = new List<TblCategoria>();

@@ -25,6 +25,9 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Admin\Views\Categoria\" />
     <Folder Include="Areas\Admin\Views\Post\" />
+    <Folder Include="ViewComponents\" />
+    <Folder Include="Views\Shared\Components\" />
+    <Folder Include="Views\Shared\Components\Categoria\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
@@ -55,6 +58,7 @@
     <Content Remove="wwwroot\lib\jquery-validation\LICENSE.md" />
     <Content Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
     <Content Remove="Areas\Admin\Views\Post\partialForm.cshtml" />
+    <Content Remove="Views\Home\categorias_widget.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />

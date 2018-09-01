@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Blog.Web.Models;
+using Blog.Dados.Models;
+using Blog.Negocio;
 
 namespace Blog.Web.Controllers
 {
@@ -12,9 +14,10 @@ namespace Blog.Web.Controllers
     {
         public IActionResult Index()
         {
-            TempData["TesteHome"] = "AAAA";
-            TempData.Keep("TesteTD");
-            return View();
+
+            List<TblPost> Posts = this.ListarPosts();
+
+            return View(Posts);
         }
 
         public IActionResult About()
@@ -40,6 +43,14 @@ namespace Blog.Web.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        private List<TblPost> ListarPosts(){
+
+            PostNegocio postNegocio = new PostNegocio();
+
+            return postNegocio.ListarPosts();
+
         }
     }
 }
