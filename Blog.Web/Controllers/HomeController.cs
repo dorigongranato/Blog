@@ -12,8 +12,10 @@ namespace Blog.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(string id)
         {
+
+            string casa = id;
 
             List<TblPost> Posts = this.ListarPosts();
 

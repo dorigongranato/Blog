@@ -34,22 +34,26 @@
             <div class="col-md-8">
                 <h1 class="my-4">
                     Blog C#
-                    <small>Projeto para demostração de conhecimento técnico</small>
+                    <small>Conhecimento técnico</small>
                 </h1>
+                <hr />
                 <!-- Blog Post -->
                 @{
                     foreach (var Item in Model)
                     {
                         <div class="card mb-4">
                             <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-                            <div class="card-body">
+                            <div class="card-body" style="border:1px solid red;">
                                 <h2 class="card-title">@Item.Titulo</h2>
-                                <p class="card-text">@Item.Conteudo.Substring(0,140)</p>
-                                <a href="#" class="btn btn-primary">Leia Mais &rarr;</a>
+
+                                <pre>@Html.Raw(Item.Conteudo)</pre>
+
+                                <a href="@Url.Action("Index", "Home", new { id = @Item.Id }, null)" class="btn btn-primary">Leia Mais &rarr;</a>
+                                
                             </div>
                             <div class="card-footer text-muted">
-                                Enviado em  @string.Format("{0:MMMM, dd yyyy}", Item.DataCadastro) por
-                                <a href="#">@Item.Autor.Nome</a>
+                                Enviado em  @string.Format("{0:dd/MMMMM 'de' yyyy}", Item.DataCadastro) por
+                                <a href="#">@string.Concat(@Item.Autor.Nome,' ' + Item.Autor.SobreNome) </a>
                             </div>
                         </div>
                     }

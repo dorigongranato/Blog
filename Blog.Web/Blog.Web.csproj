@@ -44,7 +44,6 @@
     <Content Remove="Areas\Admin\Views\Shared\_Mensagem.cshtml" />
     <Content Remove="wwwroot\js\confirmation.js" />
     <Content Remove="Areas\Admin\Views\Categoria\partialForm.cshtml" />
-    <Content Remove="app.config" />
     <Content Remove="wwwroot\lib\jquery-validation\.bower.json" />
     <Content Remove="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
     <Content Remove="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
@@ -73,7 +72,6 @@
     <None Include="wwwroot\lib\blockUI\jquery.blockUI.js" />
     <None Include="Areas\Admin\Views\Shared\_Mensagem.cshtml" />
     <None Include="wwwroot\js\confirmation.js" />
-    <None Include="app.config" />
     <None Include="Areas\Admin\Views\Categoria\partialForm.cshtml" />
     <None Include="wwwroot\lib\jquery-validation\.DS_Store" />
     <None Include="wwwroot\lib\jquery-validation\.bower.json" />
