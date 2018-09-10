@@ -39,6 +39,7 @@
                 <hr />
                 <!-- Blog Post -->
                 <!-- Comentario Branch  1-->
+                <!-- Comentario Branch  2-->
                 @{
                     foreach (var Item in Model)
                     {
@@ -50,11 +51,11 @@
                                 <pre>@Html.Raw(Item.Conteudo)</pre>
 
                                 <a href="@Url.Action("Index", "Post", new { titulo = @Item.Titulo.Replace(' ', '_')  }, null)" class="btn btn-primary">Leia Mais &rarr;</a>
-                                
+
                             </div>
                             <div class="card-footer text-muted">
                                 Enviado em  @string.Format("{0:dd/MMMMM 'de' yyyy}", Item.DataCadastro) por
-                                <a href="#">@string.Concat(@Item.Autor.Nome,' ' + Item.Autor.SobreNome) </a>
+                                <a href="#">@string.Concat(@Item.Autor.Nome, ' ' + Item.Autor.SobreNome) </a>
                             </div>
                         </div>
                     }
