@@ -48,7 +48,7 @@
 
                                 <pre>@Html.Raw(Item.Conteudo)</pre>
 
-                                <a href="@Url.Action("Index", "Home", new { id = @Item.Id }, null)" class="btn btn-primary">Leia Mais &rarr;</a>
+                                <a href="@Url.Action("Index", "Post", new { titulo = @Item.Titulo.Replace(' ', '_')  }, null)" class="btn btn-primary">Leia Mais &rarr;</a>
                                 
                             </div>
                             <div class="card-footer text-muted">
